@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DepoimentoService } from 'src/app/core/services/depoimento.service';
 import { PromocaoService } from 'src/app/core/services/promocao.service';
 
 @Component({
@@ -7,7 +8,9 @@ import { PromocaoService } from 'src/app/core/services/promocao.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor( private servicoPromocao: PromocaoService ) {
+  constructor( private servicoPromocao: PromocaoService,
+
+   ) {
 
   }
   ngOnInit(): void {
@@ -18,4 +21,5 @@ export class HomeComponent implements OnInit {
         }
       )
   }
+
 }
