@@ -7,7 +7,7 @@
       <section>
         <div class="acoesPerfil" *ngIf="perfilComponent">
           <h2>Dados pessoais</h2>
-          <button mat-stroked-button color="primary">
+          <button (click)="deslogar()" mat-stroked-button color="primary">
             <mat-icon>logout</mat-icon>
             DESLOGAR
           </button>
@@ -57,7 +57,7 @@
             </div>
             <mat-form-field appearance="outline">
               <mat-label>Telefone</mat-label>
-              <input matInput formControlName="telefone" placeholder="+XX XXXX-XXXX">
+              <input matInput formControlName="telefone" placeholder="00 00000-0000">
               <mat-error *ngIf="cadastroForm.get('telefone')?.errors">Telefone é obrigatório</mat-error>
 
             </mat-form-field>

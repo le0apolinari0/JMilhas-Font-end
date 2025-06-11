@@ -30,4 +30,8 @@ export class AutenticacaoService {
    })
  )
 }
+
+verificarEmailExistente(email: string): Observable<any> {
+  return this.http.get(`${this.apiUrl}/usuarios/email/${email}`);
+}
 }

@@ -33,33 +33,42 @@ alt="Banner da tela de login">
           <mat-form-field appearance="outline">
            <mat-label>E-mail</mat-label>
            <input formControlName="email" matInput type="email" placeholder="Digite seu E-mail">
-          <mat-error>
-             <ng-container *ngIf="loginForm.get('email')?.errors?.['required']">
-                E-mail é obrigatória.
+            <mat-error>
+              <ng-container
+              *ngIf="loginForm.get('email')?.errors?.['required']"> E-mail é obrigatória.
+            </ng-container>
+              <ng-container
+              *ngIf="loginForm.get('email')?.errors?.['pattern']"> Formato de e-mail inválido.
+            </ng-container>
+              <ng-container
+              *ngIf="loginForm.get('email')?.errors?.['emailNaoEncontrado']"> E-mail Digitado não cadastrado.
+            </ng-container>
+              <ng-container
+              *ngIf="loginForm.get('email')?.errors?.['emailInvalido']"> E-mail inválidos ou Não Cadastrado.
               </ng-container>
-              <ng-container *ngIf="loginForm.get('email')?.errors?.['pattern']">
-                Fromato de e-mail inválido.
-              </ng-container>
-          </mat-error>
+           </mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Senha</mat-label>
             <input formControlName="senha" matInput type="password" placeholder="Digite seu Senha">
             <mat-error >
-              <ng-container *ngIf="loginForm.get('senha')?.errors?.['required']">
-                Senha é obrigatória.
+              <ng-container *ngIf="loginForm.get('senha')?.errors?.['required']">Senha é obrigatória.
               </ng-container>
-              <ng-container *ngIf="loginForm.get('senha')?.errors?.['minlength']">
-                Senha deve ter no mínimo 3 caracteres.
+              <ng-container *ngIf="loginForm.get('senha')?.errors?.['minlength']">Senha deve ter no mínimo 3 caracteres.
               </ng-container>
+               <ng-container *ngIf="loginForm.get('senha')?.errors?.['senhIncorreta']"> Senha incorreta.
+               </ng-container>
+
             </mat-error>
+
           </mat-form-field>
         </mat-card-content>
 
         <mat-card-actions>
           <button [disabled]="loginForm.invalid" (click)="login()" mat-flat-button color="primary">
             ACESSAR MINHA CONTA
+
           </button>
         </mat-card-actions>
         <P>

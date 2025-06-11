@@ -27,22 +27,25 @@ constructor(
       senha: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]]
     });
   }
-
-  login(){
-    const email = this.loginForm.value.email;
-    const senha = this.loginForm.value.senha;
-
-    this.authService.autenticar(email, senha).subscribe({
-      next: (response) => {
-        console.log("Login realizado com sucesso", response);
-        this.router.navigateByUrl('/');
-      },
-      error: (error) => {
-        console.error("Erro ao realizar login", error);
+login(){
+  const email = this.loginForm.value.email;
+  const senha = this.loginForm.value.senha;
+  this.authService.autenticar(email, senha).subscribe({
+    next: (response) => {
+      console.log("Login realizado com sucesso", response);
+      this.router.navigateByUrl('/');
+    },
+    error: (error) => {
+      console.error("Erro ao realizar login", error);
+      if (error.status === 404) {
+        this.loginForm.get('email')?.setErrors({ emailNaoEncontrado: true });
+      } else if (error.status === 401) {
+        this.loginForm.get('email')?.setErrors({ emailInvalido: true });
+        this.loginForm.get('senha')?.setErrors({ senhIncorreta: true });
       }
-    });
+    }
+  });
 }
 }
-
 
 
