@@ -14,6 +14,7 @@ import { AutenticacaoInterceptor } from './autenticacao/autenticacao.interceptor
 import { HomeModule } from './home/home.module';
 import { ErroModule } from './core/erro/erro.module';
 import { ErrosInterceptor } from './core/erro/erros.interceptor';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ErrosInterceptor } from './core/erro/erros.interceptor';
     MaterialModule,
     HomeModule,
     BrowserAnimationsModule,
-    ErroModule
+    ErroModule,
+    MatButtonModule
   ],
   providers: [
     {
