@@ -1,27 +1,46 @@
 # JornadaMilhas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+Jornada Milhas é uma aplicação web desenvolvida em Angular para busca e destaque de passagens aéreas, simulação de reservas e visualização de promoções e depoimentos. O projeto utiliza Angular Material para a interface, segue boas práticas de arquitetura e está pronto para ser executado tanto localmente quanto em ambiente Docker.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Como rodar o projeto
+# 1. Pré-requisitos
+Node.js (recomendado: versão 18 ou superior)
+NPM
+Angular CLI (npm install -g @angular/cli)
+(Opcional) Docker e Docker Compose
 
-## Code scaffolding
+## Code 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# 2. Instalação
+No terminal, execute:
+ npm install
+
+ # 3. Rodando localmente
+   Para iniciar o servidor de desenvolvimento Angular, execute:
+ npm start
+
+Acesse o app em: http://localhost:4200
 
 ## Build
+# 4. Rodando com Docker
+Se preferir rodar em container, basta executar:
+docker-compose up --build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+Acesse o app em: http://localhost:4200
+
+5. Scripts úteis
+npm run build — Gera a versão de produção na pasta dist/
+npm test — Executa os testes unitários
+npm run lint — Executa o linter do projeto
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
