@@ -54,10 +54,11 @@ export class FormBaseComponent implements OnInit{
   }
 
   executarAcao(){
-   console.log(this.cadastroForm.valid);
-  console.log(this.cadastroForm.errors);
-      this.acaoClique.emit();
-
+  console.log(this.cadastroForm.valid);
+  if (!this.cadastroForm.valid) {
+    console.log(this.cadastroForm.errors);
+  }
+  this.acaoClique.emit();
 }
 deslogar() {
 this.sair.emit();
@@ -65,7 +66,7 @@ this.sair.emit();
 // Limpar tokens do localStorage/sessionStorage/redirecionando para tela de login
 localStorage.removeItem('token');
 sessionStorage.removeItem('token');
-this.router.navigate(['/login']);
+// this.router.navigate(['/login']);
 
 if (this.perfilComponent) {
   console.log("Deslogado com sucesso do perfil");
